@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><b>Product Name</b></td>
+        <td><b>Product Description</b></td>
+        <td><b>Price</b></td>
+        <td><b>Quantity</b></td>
+        <td><b>Total Price</b></td>
+        <td colspan="2"><b>Actions</b></td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{ p.name }}</td>
+            <td>{{p.description}}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>{{p.totalPrice}}</td>
+              <td><a [routerLink]="['/product/edit', p._id]" class="btn btn-primary">Edit</a></td> 
+            <td><a (click) = "deleteProduct(p._id)"  class="btn btn-danger">Delete</a></td> 
+        </tr>
+    </tbody>
+  </table>
+  

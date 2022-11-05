@@ -1,0 +1,58 @@
+<div  class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" >
+  
+        <div class="form-group">
+          <label class="col-md-4">Product Name</label>
+          <input type="text"  formControlName="name" class="form-control" />
+        </div>
+        <div *ngIf="angForm.controls['name'].errors != null && angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['name'].errors['required'] != null" >
+            Product Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Product Description</label>
+            <input type="text"  formControlName="description" class="form-control" />
+          </div>
+          <div *ngIf="angForm.controls['description'].errors != null && angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['description'].errors['required'] != null" >
+              Product description is required.
+            </div>
+          </div>
+        
+        <div class="form-group">
+          <label class="col-md-4">Price </label>
+          <input type="text"  formControlName="price" class="form-control" />
+        </div>
+        <div *ngIf="angForm.controls['price'].errors != null && angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['price'].errors['required'] != null">
+            Price is required.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-4">Quantity </label>
+          <input type="text"  formControlName="quantity" class="form-control" />
+        </div>
+        <div *ngIf="angForm.controls['quantity'].errors != null && angForm.controls['quantity'].invalid && (angForm.controls['quantity'].dirty || angForm.controls['quantity'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['quantity'].errors['required'] != null">
+            Quantity is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+            
+            <input type="text"  formControlName="totalPrice" class="form-control" hidden/>
+          </div>
+         
+        <div class="form-group">
+          <button (click)="insertProduct()"
+              [disabled]="angForm.pristine || angForm.invalid" 
+              class="btn btn-primary">
+              Add Product
+           </button>
+        </div>
+      </form>
+    </div>
+  </div>
